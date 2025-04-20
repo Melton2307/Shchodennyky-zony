@@ -1,32 +1,43 @@
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Щоденники Зони</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Щоденники Зони</title>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <audio id="bgMusic" src="assets/music/guitar.mp3" loop autoplay></audio>
-  <div class="book">
-    <div class="page" id="page1" onclick="nextPage()">
-      <h2 data-ua="Анекдот #1" data-en="Joke #1" data-pl="Dowcip #1"></h2>
-      <p data-ua="Питає новачок у ветерана: 'Що буде, якщо випити енергетик біля аномалії?' — 'Аномалії не буде, і тебе теж.'"
-         data-en="Rookie asks a veteran: 'What happens if I drink an energy drink near an anomaly?' — 'There won’t be an anomaly... or you.'"
-         data-pl="Nowicjusz pyta weterana: 'Co się stanie, jeśli wypiję energetyka przy anomalii?' — 'Nie będzie anomalii... ani ciebie.'">
-      </p>
+    <div id="pages">
+        
+    <div class="book">
+        <div class="page left"><h2>Сторінка 1</h2><p>Йде сталкер Зоною. Раптом з-за кущів — "ПСЕВДОСОБАКА!"<br>Сталкер: "А я думав, це мій колишній інструктор..."</p></div>
+        <div class="page right"><h2>Сторінка 2</h2><p>Сидить сталкер біля багаття:<br>— Тепло, душевно, радіаційно.</p></div>
     </div>
+    
+    <div class="book">
+        <div class="page left"><h2>Сторінка 3</h2><p>Зустрілись двоє сталкерів:<br>— Як артефакти?<br>— Як гроші. Є, але не мої.<br><br>У Зоні головне — не бігти швидше за мутанта. А швидше за напарника.</p></div>
+        <div class="page right"><h2>Сторінка 4</h2><p>Порада ветерана:<br>— Якщо чуєш "клац" — це не фото. Це граната без кільця.<br><br>Якщо бачиш аномалію — обходь. Якщо не бачиш — вже пізно.</p></div>
+    </div>
+    
+    <div class="book">
+        <div class="page left"><h2>Сторінка 5</h2><p>Сталкер, що вижив:<br>— Не чіпай нічого, що блищить, стогне або рухається. Навіть якщо це твоя теща.</p></div>
+        <div class="page right"><h2>Сторінка 6</h2><p>У барі:
+<br>— Двісті грамів води.<br>— Якої?<br>— Не мутованої.</p></div>
+    </div>
+    
+    <div class="book">
+        <div class="page left"><h2>Сторінка 7</h2><p>Старий артефактник казав:<br>— У Зоні можна знайти все. Навіть свою смерть.</p></div>
+        <div class="page right"><h2>Сторінка 8</h2><p>Закон Зони:<br>— Якщо ти знайшов ідеальне місце для привалу — ховайся, хтось інший вже тут загинув.</p></div>
+    </div>
+    
+    </div>
+
     <div class="controls">
-      <button onclick="prevPage()">←</button>
-      <button onclick="nextPage()">→</button>
-      <select id="languageSelect" onchange="changeLanguage(this.value)">
-        <option value="ua">UA</option>
-        <option value="en">EN</option>
-        <option value="pl">PL</option>
-      </select>
+        <button onclick="prevPage()">← Назад</button>
+        <button onclick="nextPage()">Вперед →</button>
     </div>
-  </div>
-  <audio id="flipSound" src="assets/sound/page-flip.mp3"></audio>
-  <script src="script.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>

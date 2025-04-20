@@ -1,34 +1,25 @@
 
-let currentPage = 0;
-const pages = document.querySelectorAll('.page');
-const flipSound = document.getElementById('flipSound');
-const bgMusic = document.getElementById('bgMusic');
+let currentSpread = 0;
+const spreads = document.querySelectorAll('.book');
+
+function showSpread(index) {
+    spreads.forEach((spread, i) => {
+        spread.style.display = (i === index) ? 'flex' : 'none';
+    });
+}
 
 function nextPage() {
-  if (currentPage < pages.length) {
-    pages[currentPage].classList.add('flipped');
-    currentPage++;
-    flipSound.play();
-  }
+    if (currentSpread < spreads.length - 1) {
+        currentSpread++;
+        showSpread(currentSpread);
+    }
 }
 
 function prevPage() {
-  if (currentPage > 0) {
-    currentPage--;
-    pages[currentPage].classList.remove('flipped');
-    flipSound.play();
-  }
+    if (currentSpread > 0) {
+        currentSpread--;
+        showSpread(currentSpread);
+    }
 }
 
-function changeLanguage(lang) {
-  localStorage.setItem('lang', lang);
-  document.querySelectorAll('[data-ua]').forEach(el => {
-    el.innerText = el.dataset[lang];
-  });
-}
-
-window.onload = () => {
-  const lang = localStorage.getItem('lang') || 'ua';
-  document.getElementById('languageSelect').value = lang;
-  changeLanguage(lang);
-}
+document.addEventListener("DOMContentLoaded", () => showSpread(currentSpread));
