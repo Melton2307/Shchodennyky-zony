@@ -1,71 +1,61 @@
 
 body {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  display: flex;
   background: url('background.jpg') no-repeat center center fixed;
   background-size: cover;
-  font-family: 'Courier New', monospace;
-  color: #e0dfd5;
-  margin: 0;
+}
+
+.sidebar {
+  width: 250px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 20px;
+  height: 100vh;
+  position: fixed;
+  overflow-y: auto;
+}
+
+.sidebar ul {
+  list-style-type: none;
   padding: 0;
 }
 
-#notebook {
-  width: 90%;
-  max-width: 960px;
-  margin: 30px auto;
-  padding: 20px;
-  background: rgba(33, 30, 25, 0.85);
-  border: 5px solid #3c3b37;
-  box-shadow: 0 0 20px #00000088;
-  border-radius: 12px;
-}
-
-.controls {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-button {
-  background: #444;
-  color: #eee;
-  border: none;
-  padding: 8px 16px;
+.sidebar li {
   cursor: pointer;
+  margin: 10px 0;
+  transition: background 0.3s ease;
 }
 
-button:hover {
-  background: #666;
+.sidebar li:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
-#story-menu {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 15px;
-  border-radius: 10px;
-  max-width: 200px;
-}
-
-#story-menu h2 {
+.language-switcher button {
+  margin: 5px;
   font-size: 18px;
-  margin-bottom: 10px;
 }
 
-#story-list {
-  list-style: none;
-  padding-left: 0;
+.content {
+  margin-left: 270px;
+  padding: 20px;
+  flex-grow: 1;
+  animation: fadein 1s ease-in-out;
 }
 
-#story-list li {
-  margin-bottom: 5px;
+.page {
+  display: none;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
 }
 
-#story-list a {
-  color: #c1ffcd;
-  text-decoration: none;
+.page:not(.hidden) {
+  display: block;
 }
 
-#story-list a:hover {
-  text-decoration: underline;
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

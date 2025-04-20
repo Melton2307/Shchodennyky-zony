@@ -1,30 +1,37 @@
+
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="ua">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Щоденники Зони</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <link rel="icon" href="icon.png" type="image/png">
 </head>
 <body>
-  <div id="notebook">
-    <div id="page-container">
-      <!-- Сюди підвантажується вміст історій -->
+  <div class="sidebar">
+    <div class="language-switcher">
+      <button onclick="switchLanguage('ua')">🇺🇦</button>
+      <button onclick="switchLanguage('en')">🇬🇧</button>
+      <button onclick="switchLanguage('pl')">🇵🇱</button>
     </div>
-    <div class="controls">
-      <button onclick="prevPage()">Назад</button>
-      <span id="page-number">Сторінка 1</span>
-      <button onclick="nextPage()">Вперед</button>
-    </div>
+    <nav>
+      <ul>
+        <li onclick="showPage('jokes')">📰 <span data-lang-ua="Анекдоти" data-lang-en="Jokes" data-lang-pl="Dowcipy">Анекдоти</span></li>
+        <li onclick="showPage('stories')">📖 <span data-lang-ua="Цікаві історії" data-lang-en="Stories" data-lang-pl="Historie">Цікаві історії</span></li>
+        <li onclick="showPage('tips')">🧭 <span data-lang-ua="Поради" data-lang-en="Tips" data-lang-pl="Porady">Поради</span></li>
+        <li onclick="showPage('about')">🧾 <span data-lang-ua="Про сайт" data-lang-en="About" data-lang-pl="O stronie">Про сайт</span></li>
+      </ul>
+    </nav>
   </div>
-  <nav id="story-menu">
-    <h2>Цікаві історії</h2>
-    <ul id="story-list">
-      <li><a href="#" onclick="goToStory(0)">Псевдособака і консерва</a></li>
-      <li><a href="#" onclick="goToStory(1)">Як Борода став сталкером</a></li>
-      <li><a href="#" onclick="goToStory(2)">Ніч на Кордоні</a></li>
-    </ul>
-  </nav>
+
+  <div class="content">
+    <section id="jokes" class="page">Тут будуть анекдоти...</section>
+    <section id="stories" class="page hidden">Тут цікаві історії...</section>
+    <section id="tips" class="page hidden">Тут поради з виживання...</section>
+    <section id="about" class="page hidden">Про сайт "Щоденники Зони"...</section>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
