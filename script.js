@@ -1,33 +1,11 @@
 
-const stories = ['story1.html', 'story2.html', 'story3.html'];
-let current = 0;
-
-function loadStory(index) {
-  fetch(stories[index])
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById('page-container').innerHTML = html;
-      document.getElementById('page-number').innerText = `Сторінка ${index + 1}`;
-    });
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(page => page.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
 }
 
-function prevPage() {
-  if (current > 0) {
-    current--;
-    loadStory(current);
-  }
+function switchLanguage(lang) {
+  document.querySelectorAll('[data-lang-ua], [data-lang-en], [data-lang-pl]').forEach(el => {
+    el.textContent = el.getAttribute('data-lang-' + lang);
+  });
 }
-
-function nextPage() {
-  if (current < stories.length - 1) {
-    current++;
-    loadStory(current);
-  }
-}
-
-function goToStory(index) {
-  current = index;
-  loadStory(current);
-}
-
-window.onload = () => loadStory(current);
