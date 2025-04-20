@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Щоденники Зони</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <audio id="bgMusic" src="assets/music/guitar.mp3" loop autoplay></audio>
+  <div class="book">
+    <div class="page" id="page1" onclick="nextPage()">
+      <h2 data-ua="Анекдот #1" data-en="Joke #1" data-pl="Dowcip #1"></h2>
+      <p data-ua="Питає новачок у ветерана: 'Що буде, якщо випити енергетик біля аномалії?' — 'Аномалії не буде, і тебе теж.'"
+         data-en="Rookie asks a veteran: 'What happens if I drink an energy drink near an anomaly?' — 'There won’t be an anomaly... or you.'"
+         data-pl="Nowicjusz pyta weterana: 'Co się stanie, jeśli wypiję energetyka przy anomalii?' — 'Nie będzie anomalii... ani ciebie.'">
+      </p>
+    </div>
+    <div class="controls">
+      <button onclick="prevPage()">←</button>
+      <button onclick="nextPage()">→</button>
+      <select id="languageSelect" onchange="changeLanguage(this.value)">
+        <option value="ua">UA</option>
+        <option value="en">EN</option>
+        <option value="pl">PL</option>
+      </select>
+    </div>
+  </div>
+  <audio id="flipSound" src="assets/sound/page-flip.mp3"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
