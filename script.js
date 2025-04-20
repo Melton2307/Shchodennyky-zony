@@ -1,25 +1,33 @@
 
-let currentSpread = 0;
-const spreads = document.querySelectorAll('.book');
+const stories = ['story1.html', 'story2.html', 'story3.html'];
+let current = 0;
 
-function showSpread(index) {
-    spreads.forEach((spread, i) => {
-        spread.style.display = (i === index) ? 'flex' : 'none';
+function loadStory(index) {
+  fetch(stories[index])
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('page-container').innerHTML = html;
+      document.getElementById('page-number').innerText = `Сторінка ${index + 1}`;
     });
 }
 
-function nextPage() {
-    if (currentSpread < spreads.length - 1) {
-        currentSpread++;
-        showSpread(currentSpread);
-    }
-}
-
 function prevPage() {
-    if (currentSpread > 0) {
-        currentSpread--;
-        showSpread(currentSpread);
-    }
+  if (current > 0) {
+    current--;
+    loadStory(current);
+  }
 }
 
-document.addEventListener("DOMContentLoaded", () => showSpread(currentSpread));
+function nextPage() {
+  if (current < stories.length - 1) {
+    current++;
+    loadStory(current);
+  }
+}
+
+function goToStory(index) {
+  current = index;
+  loadStory(current);
+}
+
+window.onload = () => loadStory(current);

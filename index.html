@@ -1,47 +1,30 @@
-
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <title>Щоденники Зони</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-image: url('background.jpg');
-            background-size: cover;
-            background-position: center;
-            font-family: "Courier New", monospace;
-            color: #ddd;
-        }
-        .book {
-            display: flex;
-            justify-content: center;
-            padding: 50px;
-        }
-        .page {
-            width: 45%;
-            background: rgba(0, 0, 0, 0.6);
-            margin: 0 10px;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #000;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Щоденники Зони</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-    <div class="book">
-        <div class="page">
-            <h2>Сторінка 1</h2>
-            <p>— Якщо бачиш аномалію — обходь. Якщо не бачиш — вже пізно.</p>
-        </div>
-        <div class="page">
-            <h2>Сторінка 2</h2>
-            <p>У барі:<br>
-            — Двісті грамів води.<br>
-            — Якої?<br>
-            — Не мутованої.</p>
-        </div>
+  <div id="notebook">
+    <div id="page-container">
+      <!-- Сюди підвантажується вміст історій -->
     </div>
+    <div class="controls">
+      <button onclick="prevPage()">Назад</button>
+      <span id="page-number">Сторінка 1</span>
+      <button onclick="nextPage()">Вперед</button>
+    </div>
+  </div>
+  <nav id="story-menu">
+    <h2>Цікаві історії</h2>
+    <ul id="story-list">
+      <li><a href="#" onclick="goToStory(0)">Псевдособака і консерва</a></li>
+      <li><a href="#" onclick="goToStory(1)">Як Борода став сталкером</a></li>
+      <li><a href="#" onclick="goToStory(2)">Ніч на Кордоні</a></li>
+    </ul>
+  </nav>
 </body>
 </html>
